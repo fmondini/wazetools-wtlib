@@ -20,12 +20,11 @@ import net.danisoft.dslib.SysTool;
  */
 public enum AuthRole {
 
-	// Please keep roles in order of importance (FM: why?!? verify...)
+	// Please keep roles in order of importance, see getRole()
 
 	UNKWN ("AUTH_Unknown", "AUTH Anonymous"       ),
 	EUSER ("AUTH_User",    "AUTH Registered User" ),
-	ADMIN ("AUTH_Admin",   "AUTH Administrator"   ),
-	STAFF ("AUTH_Staff",   "AUTH Staff"           );
+	ADMIN ("AUTH_Admin",   "AUTH Administrator"   );
 
 	private final String _Code;
 	private final String _Desc;

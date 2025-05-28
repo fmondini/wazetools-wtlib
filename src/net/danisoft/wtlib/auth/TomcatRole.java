@@ -185,7 +185,7 @@ public class TomcatRole {
 
 	/**
 	 * Get a vector of all active countries
-	 * @apiNote Active &rarr; with a user with <tt>AUTH_Role.ADMIN</tt> or role <tt>AUTH_Role.STAFF</tt>
+	 * @apiNote Active &rarr; has at least one user with <tt>AuthRole.ADMIN</tt>
 	 */
 	public Vector<String> getActiveCountries() throws Exception {
 
@@ -200,10 +200,8 @@ public class TomcatRole {
 			"LEFT JOIN " + User.getTblName() + " ON " +
 				TBL_NAME + ".USR_Name = " + User.getTblName() + ".USR_Name " +
 			"WHERE (" +
-				"USR_Country <> '' AND (" +
-					"USR_Role = '" + AuthRole.ADMIN.getCode() + "' OR " +
-					"USR_Role = '" + AuthRole.STAFF + "'" +
-				")" +
+				"USR_Country <> '' AND " +
+				"USR_Role = '" + AuthRole.ADMIN.getCode() + "'" +
 			")";
 
 		Statement st = this.cn.createStatement();
