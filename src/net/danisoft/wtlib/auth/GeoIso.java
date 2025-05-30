@@ -290,6 +290,48 @@ public class GeoIso {
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	//
+	// Country flags
+	//
+
+	/**
+	 * Get an IMG tag with the given country flag image in png format
+	 * @param iso2code ISO country code (2 chars)
+	 */
+	public String getFlag24x18byIso2(String iso2code) {
+
+		return(
+			"<img src=\"../images/country-flags/24x18/" + iso2code.toLowerCase() + ".png\"></img>"
+		);
+	}
+
+	/**
+	 * Get an IMG tag with the given country flag image in png format
+	 * @param iso3code ISO country code (3 chars)
+	 */
+	public String getFlag24x18byIso3(String iso3code) {
+
+		String flagSpan = "";
+		
+		try {
+			Data data = Read(iso3code);
+			flagSpan = getFlag24x18byIso2(data.getIso2());
+		} catch (Exception e) {
+			flagSpan = e.toString();
+		}
+
+		return(flagSpan);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	//
 	// +++ PRIVATE +++
 	//
 	////////////////////////////////////////////////////////////////////////////////////////////////////
